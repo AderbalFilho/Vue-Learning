@@ -7,25 +7,44 @@
   <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 </head>
 <body>
+  <!--
+    <div id="app">
+      <h1 v-once>{{ title }}</h1>
+      <p>{{ sayHello() }} - <a v-bind:href="link">Google</a></p>
+      <hr />
+      <p v-html="finishedLink"></p>
+    </div>
+  -->
   <div id="app">
-    <h1 v-once>{{ title }}</h1>
-    <p>{{ sayHello() }} - <a v-bind:href="link">Google</a></p>
-    <hr />
-    <p v-html="finishedLink"></p>
+    <button v-on:click="increase()">Click me</button>
+    <p>{{ counter }}</p>
   </div>
 
   <script>
+    /*
+      new Vue({
+        el: '#app',
+        data: {
+          title: 'Hello World!',
+          link: 'http://google.com',
+          finishedLink: '<a href="http://www.google.com">Google</a>'
+        },
+        methods: {
+          sayHello: function(event) {
+            this.title = 'Hello!';
+            return this.title;
+          }
+        }
+      });
+    */
     new Vue({
       el: '#app',
       data: {
-        title: 'Hello World!',
-        link: 'http://google.com',
-        finishedLink: '<a href="http://www.google.com">Google</a>'
+        counter: 0
       },
       methods: {
-        sayHello: function(event) {
-          this.title = 'Hello!';
-          return this.title;
+        increase: function() {
+          this.counter++;
         }
       }
     });
