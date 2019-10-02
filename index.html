@@ -10,6 +10,8 @@
   <div id="app">
     <h1 v-once>{{ title }}</h1>
     <p>{{ sayHello() }} - <a v-bind:href="link">Google</a></p>
+    <hr />
+    <p v-html="finishedLink"></p>
   </div>
 
   <script>
@@ -17,7 +19,8 @@
       el: '#app',
       data: {
         title: 'Hello World!',
-        link: 'http://google.com'
+        link: 'http://google.com',
+        finishedLink: '<a href="http://www.google.com">Google</a>'
       },
       methods: {
         sayHello: function(event) {
