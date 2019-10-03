@@ -12,7 +12,7 @@
     <button v-on:click="counter--">Decrease</button>
     <button v-on:click="secondCounter++">Increase Second</button>
     <p>Counter: {{ counter }} | {{ secondCounter }}</p>
-    <p>Result: {{ result() }} | {{ output }}</p>
+    <!-- <p>Result: {{ result() }} | {{ output }}</p> -->
   </div>
 
   <script>
@@ -28,12 +28,22 @@
           return this.counter > 5 ? 'Greater 5' : 'Smaller than 5'
         }
       },
+      watch: {
+        counter: function( value ) {
+          var vm = this;
+          setTimeout(function() {
+            vm.counter = 0;
+          }, 2000);
+        }
+      }
+      /*
       methods: {
         result: function() {
           console.log('Method');
-          return this.counter > 5 ? 'Greater 5' : 'Smaller than 5'
+          return this.counter > 5 ? 'Greater 5' : 'Smaller than 5';
         }
       }
+      */
     });
   </script>
 </body>
