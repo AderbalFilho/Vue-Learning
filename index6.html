@@ -13,31 +13,44 @@
       display: inline-block;
       margin: 10px;
     }
+
+    .red {
+      background-color: red;
+    }
+    .green {
+      background-color: green;
+    }
+    .blue {
+      background-color: blue;
+    }
   </style>
 </head>
 <body>
   <div id="app">
-    <div class="demo" :style="{backgroundColor: color}"></div>
-    <div class="demo" :style="myStyle"></div>
-    <div class="demo"></div>
+    <div
+      class="demo"
+      @click="attachRed = !attachRed"
+      :class="divClasses"
+    ></div>
+    <div class="demo" :class="{red: attachRed}"></div>
+    <div class="demo" :class="[color, {red: attachRed}]"></div>
     <hr>
     <input type="text" v-model="color">
-    <input type="text" v-model="width">
   </div>
 
   <script>
     new Vue({
       el: '#app',
       data: {
-        color: 'gray',
-        width: 100
+        attachRed: false,
+        color: 'green'
       },
       computed: {
-        myStyle: function() {
+        divClasses: function() {
           return {
-            backgroundColor: this.color,
-            width: this.width + 'px'
-          };
+            red: this.attachRed,
+            blue: !this.attachRed
+          }
         }
       }
     });
