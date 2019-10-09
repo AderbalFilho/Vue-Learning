@@ -11,7 +11,7 @@ new Vue({
   },
   watch: {
     boolean: function() {
-      this.boolean === "false" ? this.boolean = false : this.boolean = this.boolean;
+      this.boolean === "false" ? this.boolean = false : null;
     }
   },
   methods: {
@@ -25,7 +25,7 @@ new Vue({
     startProgress: function() {
       var vm = this;
       setInterval(function() {
-        vm.progress < 100 ? vm.progress += 1 : vm.progress = 100;
+        vm.progress < 100 ? vm.progress += 1 : null;
       }, 500);
     }
   }
