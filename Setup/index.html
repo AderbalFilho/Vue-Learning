@@ -39,7 +39,7 @@
             <button id="give-up" @click="battleStarted = false">GIVE UP</button>
         </div>
     </section>
-    <section v-if="hasHistory" class="row log">
+    <section v-if="battleHistory.length" class="row log">
         <div class="small-12 columns">
             <ul>
                 <li v-for="battle in battleHistory" :class="battle.turn === 'player' ? 'player-turn' : 'monster-turn'">

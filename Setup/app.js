@@ -4,8 +4,7 @@ new Vue({
         healthYou: 100,
         healthMonster: 100,
         battleStarted: false,
-        battleHistory: [],
-        hasHistory: false
+        battleHistory: []
     },
     methods: {
         attack: function() {
@@ -23,7 +22,6 @@ new Vue({
             this.healthYou = 100;
             this.healthMonster = 100;
             this.battleHistory = [];
-            this.hasHistory = false;
             this.battleStarted = true;
         },
         heal: function() {
@@ -47,7 +45,6 @@ new Vue({
         monsterAttack: function() {
             var monsterAttack = Math.floor(Math.random() * 7) + 6;
             this.healthYou -= monsterAttack;
-            this.hasHistory = true;
             this.battleHistory.unshift({
                 information: 'MONSTER HITS PLAYER FOR ' + monsterAttack,
                 turn: 'monster'
