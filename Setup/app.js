@@ -29,6 +29,7 @@ new Vue({
         heal: function() {
             var heal = Math.floor(Math.random() * 5) + 6;
             this.healthYou += heal;
+            this.healthYou > 100 ? this.healthYou = 100 : null;
             this.battleHistory.push({
                 information: 'PLAYER HEALS HIMSELF FOR ' + heal,
                 turn: 'player'
