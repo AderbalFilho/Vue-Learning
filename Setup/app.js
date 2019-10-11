@@ -11,7 +11,7 @@ new Vue({
         attack: function() {
             var damage = Math.floor(Math.random() * 5) + 6;
             this.healthMonster -= damage;
-            this.battleHistory.push({
+            this.battleHistory.unshift({
                 information: 'PLAYER HITS PLAYER FOR ' + damage,
                 turn: 'player'
             })
@@ -30,7 +30,7 @@ new Vue({
             var heal = Math.floor(Math.random() * 5) + 6;
             this.healthYou += heal;
             this.healthYou > 100 ? this.healthYou = 100 : null;
-            this.battleHistory.push({
+            this.battleHistory.unshift({
                 information: 'PLAYER HEALS HIMSELF FOR ' + heal,
                 turn: 'player'
             })
@@ -48,7 +48,7 @@ new Vue({
             var monsterAttack = Math.floor(Math.random() * 7) + 6;
             this.healthYou -= monsterAttack;
             this.hasHistory = true;
-            this.battleHistory.push({
+            this.battleHistory.unshift({
                 information: 'MONSTER HITS PLAYER FOR ' + monsterAttack,
                 turn: 'monster'
             })
@@ -60,7 +60,7 @@ new Vue({
         specialAttack: function() {
             var damage = Math.floor(Math.random() * 11) + 10;
             this.healthMonster -= damage;
-            this.battleHistory.push({
+            this.battleHistory.unshift({
                 information: 'PLAYER HITS PLAYER FOR ' + damage,
                 turn: 'player'
             })
